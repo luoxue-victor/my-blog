@@ -22,10 +22,11 @@ class CopyDirWebpackPlugin {
         try {
           execa.shellSync('git remote add origin https://github.com/luoxue-victor/luoxue.github.io.git')
         } catch (error) {
-          
+
         }
         execa.shellSync('git add .')
         execa.shellSync('git commit -m "fix"')
+        execa.shellSync('git pull origin master')
         execa.shellSync('git push origin master')
 
         console.log('完成')
