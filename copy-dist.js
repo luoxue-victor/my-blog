@@ -26,7 +26,7 @@ class CopyDirWebpackPlugin {
         }
         execa.shellSync('git add .')
         execa.shellSync('git commit -m "fix"')
-        execa.shellSync('git pull origin master')
+        execa.shellSync('git pull origin new-branch --allow-unrelated-histories')
         execa.shellSync('git push origin master')
 
         console.log('完成')
