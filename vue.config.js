@@ -14,7 +14,7 @@ module.exports = {
     config.plugin('copy-dist')
       .use(new CopyPlugin({
         from: 'dist',
-        to: '../dist'
+        to: '../luoxue.github.io'
       }))
   }
 }

@@ -1,0 +1,73 @@
+{
+  "_from": "vue-monaco-editor",
+  "_id": "vue-monaco-editor@0.0.19",
+  "_inBundle": false,
+  "_integrity": "sha1-6t7/G28dzYlLZ2Y4PNox5daCrRE=",
+  "_location": "/vue-monaco-editor",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vue-monaco-editor",
+    "name": "vue-monaco-editor",
+    "escapedName": "vue-monaco-editor",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/vue-monaco-editor/download/vue-monaco-editor-0.0.19.tgz",
+  "_shasum": "eadeff1b6f1dcd894b6766383cda31e5d682ad11",
+  "_spec": "vue-monaco-editor",
+  "_where": "/Users/luoxue/Desktop/源码/source-code",
+  "author": {
+    "name": "matt-oconnell",
+    "email": "mattoconnell408@gmail.com"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "vueify"
+      ]
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/matt-oconnell/vue-monaco-editor/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "vue": "^2.1.0"
+  },
+  "deprecated": false,
+  "description": "Monaco Editor Component for Vue.js 2.x",
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "vue-loader": "^10.0.0",
+    "vue-template-compiler": "^2.1.0",
+    "vueify": "^9.4.0",
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-server": "^2.1.0-beta.9"
+  },
+  "homepage": "https://github.com/matt-oconnell/vue-monaco-editor",
+  "main": "index.js",
+  "name": "vue-monaco-editor",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt-oconnell/vue-monaco-editor.git"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot"
+  },
+  "version": "0.0.19"
+}

@@ -1,16 +1,34 @@
-const pluginName = 'copyDirWebpackPlugin';
+const execa = require('execa')
 const fs = require('fs-extra')
 const globby = require('globby')
-const execa = require('execa')
 class CopyDirWebpackPlugin {
   constructor(options) {
-    console.log(options)
     this.options = options;
   }
   apply(compiler) {
+    const opt = this.options
     compiler.plugin('done', (stats) => {
-      execa.shellSync('cp -r dist ../dist')
-      console.log('完成')
+      if (process.env.NODE_ENV === 'production') {
+        (async ()=>{
+          const ps = await globby([`${opt.to}/**`, '!.git/**'])
+          ps.forEach(p => {
+            try {
+              p && fs.moveSync(p)
+            } catch (error) {
+              
+            }
+          });
+          const psf = await globby([`${opt.from}/**`])
+          psf.forEach(_ => {
+            const _ori = _
+            _ = _.replace('dist', opt.to)
+            const dirpaths = _.substring(0, _.lastIndexOf('/'))
+            fs.mkdirpSync(dirpaths)
+            fs.copySync(_ori, _)
+          })
+          console.log(`  完成copy ${opt.from} to ${opt.to}`)
+        })()
+      }
     });
   }
 }
