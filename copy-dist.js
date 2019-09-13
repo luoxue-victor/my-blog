@@ -10,9 +10,9 @@ class CopyDirWebpackPlugin {
   apply(compiler) {
     compiler.plugin('done', (stats) => {
       (async function() {
-        // const paths = await globby(['dist/**'])
-        // console.log(paths)
-        execa.shellSync('cd dist')
+        execa.shellSync('cp -r dist ../dist')
+
+        execa.shellSync('cd ../dist')
         execa.shellSync('git init')
         try {
           execa.shellSync('git remote rename origin old-origin')
