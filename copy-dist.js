@@ -11,7 +11,6 @@ class CopyDirWebpackPlugin {
     compiler.plugin('done', (stats) => {
       (async function() {
         execa.shellSync('cp -r dist ../dist')
-
         execa.shellSync('cd ../dist')
         execa.shellSync('git init')
         try {
