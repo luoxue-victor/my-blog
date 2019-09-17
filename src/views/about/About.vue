@@ -10,7 +10,7 @@
     </MonacoEditor>
 </template>
 <script>
-import MonacoEditor from 'vue-monaco-editor'
+import MonacoEditor from '../../components/vue-monaco-editor'
 export default {
   components: {
     MonacoEditor

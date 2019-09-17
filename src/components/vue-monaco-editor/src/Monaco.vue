@@ -3,8 +3,8 @@
 </template>
 
 <script>
-var debounce = require('lodash.debounce');
-var monacoLoader = require('./MonacoLoader');
+import monacoLoader from './MonacoLoader'
+const debounce = require('lodash.debounce');
 
 export default {
   props: {

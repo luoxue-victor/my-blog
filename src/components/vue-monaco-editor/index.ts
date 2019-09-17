@@ -1,3 +1,3 @@
-var monaco = require('./src/Monaco.vue')
+import monaco from './src/Monaco.vue'
 
-module.exports = monaco
+export default monaco

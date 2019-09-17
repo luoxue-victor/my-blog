@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /* For now: default to cdn. */
   load(srcPath = 'https://as.alipayobjects.com/g/cicada/monaco-editor-mirror/0.6.1/min', callback) {
     if (window.monaco) {

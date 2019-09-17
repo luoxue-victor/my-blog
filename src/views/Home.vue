@@ -1,18 +1,28 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
-</template>
-
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import { routes } from '../router/route'
+import { extraRouteConfig } from '../types/route'
 
-@Component({
-  components: {
-    HelloWorld
+@Component
+export default class Home extends Vue {
+  routes = routes;
+  clickRoute (item: extraRouteConfig) {
+    this.$router.push(item.path)
   }
-})
-export default class Home extends Vue {}
+  render (h: Function) {
+    const o = (item: extraRouteConfig) => {
+      return h('h2', {
+        on: {
+          click: () => {
+            this.clickRoute(item)
+          }
+        }
+      }, [ h('span', item.name) ])
+    }
+    return h('h1', {}, [
+      ...routes.map(item => o(item)),
+    ])
+  }
+}
 </script>
