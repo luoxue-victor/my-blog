@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
 import { routes } from '../router/route'
 import { extraRouteConfig } from '../types/route'
 
@@ -13,6 +13,9 @@ export default class Home extends Vue {
   render (h: Function) {
     const o = (item: extraRouteConfig) => {
       return h('h2', {
+        style: {
+          color: 'orange'
+        },
         on: {
           click: () => {
             this.clickRoute(item)

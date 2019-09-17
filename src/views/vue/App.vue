@@ -1,11 +1,14 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
+    <Button>Button</Button>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import { Button } from 'iview'
+
+Vue.component('Button', Button)
 
 @Component
 export default class HelloWorld extends Vue {
