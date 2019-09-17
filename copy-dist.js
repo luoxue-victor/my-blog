@@ -11,13 +11,7 @@ class CopyDirWebpackPlugin {
       if (process.env.NODE_ENV === 'production') {
         (async ()=>{
           const ps = await globby([`${opt.to}/**`, '!.git/**'])
-          ps.forEach(p => {
-            try {
-              p && fs.moveSync(p)
-            } catch (error) {
-              
-            }
-          });
+          ps.forEach(p => fs.removeSync(p))
           const psf = await globby([`${opt.from}/**`])
           psf.forEach(_ => {
             const _ori = _

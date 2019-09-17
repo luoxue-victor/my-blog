@@ -25,6 +25,7 @@ class CopyDirWebpackPlugin {
             const _ori = _
             _ = _.replace('src', opt.to)
             const dirpaths = _.substring(0, _.lastIndexOf('/'))
+            console.log(_)
             if (/\.md$/.test(_) && _.includes('views')) {
               fs.mkdirpSync(dirpaths)
               fs.copySync(_ori, _)

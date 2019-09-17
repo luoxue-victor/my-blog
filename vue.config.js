@@ -1,4 +1,5 @@
 const CopyPlugin = require('./copy-dist')
+const DocsPlugin = require('./docs-dist')
 const { creatRouter } = require('./createRouter')
 
 console.log(creatRouter)
@@ -19,6 +20,11 @@ module.exports = {
       .use(new CopyPlugin({
         from: 'dist',
         to: '../luoxue.github.io'
+      }))
+    config.plugin('docs-dist')
+      .use(new DocsPlugin({
+        from: 'src',
+        to: '../vuepress-docs'
       }))
   }
 }
