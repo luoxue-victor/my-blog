@@ -7,11 +7,11 @@ const glob = pify(Glob)
 generateRoutesAndFiles = async () => {
   const files = {};
 
-  (await glob(`views/**/*.{vue,js}`, {
+  (await glob(`views/**/*.vue`, {
     cwd: path.resolve(process.cwd(), './src'),
     ignore: ['**/*.test.*', '**/*.spec.*', '**/-*.*']
   })).forEach((f) => {
-    const key = f.replace(/\.(js|vue)$/, '')
+    const key = f.replace(/\.(vue)$/, '')
     if (/\.vue$/.test(f) || !files[key]) {
       files[key] = f.replace(/('|")/g, '\\$1')
     }
@@ -229,12 +229,10 @@ module.exports.creatRouter = (flag = false) => {
       .replace(/"(\w+?)":/g, '$1:')
     fs.mkdir(path.resolve(process.cwd(), './src/router'), err => {
       if (err) {
-        console.log('\n_(:з」∠)_ _(:з」∠)_ ')
         console.log('router文件已存在')
       }
     })
     fs.writeFile(path.resolve(process.cwd(), './src/router/route.ts'), string, (file) => {
-      console.log('\n╭(￣▽￣)╯╭(￣▽￣)╯')
       console.log('router文件写入完毕')
     })
   })

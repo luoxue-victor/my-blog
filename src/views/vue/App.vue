@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Button>Button</Button>
+  <div id="myapp">
+    hahahha
   </div>
 </template>
 
@@ -8,11 +8,13 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 import { Button } from 'iview'
 
+
 Vue.component('Button', Button)
 
 @Component
 export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+  mounted () {
+  }  
 }
 </script>
 

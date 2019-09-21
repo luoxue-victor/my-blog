@@ -1,31 +1,20 @@
+<template>
+  <div>
+    <MoveSwiper></MoveSwiper>
+    <CreateRoute></CreateRoute>
+  </div>
+</template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import HelloWorld from '@/components/HelloWorld.vue'
-import { routes } from '../router/route'
-import { extraRouteConfig } from '../types/route'
+import CreateRoute from '@/components/CreateRoute/home.vue'
+import MoveSwiper from '@/components/swiper/move.vue'
+// import TopSwiper from '@/components/swiper/home.vue'
+
+Vue.component('CreateRoute', CreateRoute)
+Vue.component('MoveSwiper', MoveSwiper)
 
 @Component
 export default class Home extends Vue {
-  routes = routes;
-  clickRoute (item: extraRouteConfig) {
-    this.$router.push(item.path)
-  }
-  render (h: Function) {
-    const o = (item: extraRouteConfig) => {
-      return h('h2', {
-        style: {
-          color: 'orange'
-        },
-        on: {
-          click: () => {
-            this.clickRoute(item)
-          }
-        }
-      }, [ h('span', item.name) ])
-    }
-    return h('h1', {}, [
-      ...routes.map(item => o(item)),
-    ])
-  }
+  
 }
 </script>
