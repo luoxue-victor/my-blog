@@ -25,7 +25,7 @@ class CopyDirWebpackPlugin {
             const _ori = _
             _ = _.replace('src', opt.to)
             const dirpaths = _.substring(0, _.lastIndexOf('/'))
-            console.log(_)
+            if (_.includes('home-index.md')) return;
             if (/\.md$/.test(_) && _.includes('views')) {
               fs.mkdirpSync(dirpaths)
               fs.copySync(_ori, _)
@@ -38,9 +38,9 @@ class CopyDirWebpackPlugin {
               mdStr += `### [${name}](${mpath}) \n`
             }
           })
-          const mdPath = path.join(opt.to, 'README.md')
-          mdStr += '## https://github.com/luoxue-victor/xuege-learning \n'
+          const mdPath = path.join(opt.to, 'guide', 'README.md')
           fs.writeFileSync(mdPath, mdStr)
+          fs.writeFileSync(path.join(opt.to, 'README.md'), fs.readFileSync(path.join('src', 'views', 'home-index.md')).toString())
           console.log(`  生成markdown`)
         })()
       }

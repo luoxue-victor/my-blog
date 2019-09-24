@@ -11,7 +11,7 @@ export default function (e, n, t) {
         i += r(a[l], n + 1, i > 0);
       }
       if (i <= 0 && !t) {
-        if (!(e.getBoundingClientRect && e.getBoundingClientRect().top < o)) return 0;
+        if (!(e.getBoundingClientRect && e.getBoundingClientRect().top < o)) return 1;
       }
       i += 1 + .5 * n;
     }
@@ -49,7 +49,7 @@ export default function (e, n, t) {
               score: o,
               t: n
             });
-            console.log('权重：', o)
+            // console.log('权重：', o)
           } else u.push({
             score: 0,
             t: n
@@ -92,8 +92,8 @@ export default function (e, n, t) {
           r && r.t > 0 && r.t < 36e5 ? t.setPerformance({
             fmp: parseInt(Math.max(r.t, max))
           }) : t.setPerformance({});
-
-          console.log('监听dom渲染完成时间：', parseInt(Math.max(r.t, max)))
+          
+          window.eventHub.$emit('fmp', parseInt(Math.max(r.t, max)))
         } catch (error) {
           t.setPerformance({});
         }

@@ -4,3 +4,6 @@ declare module '*.vue' {
 }
 
 declare module 'vue-awesome-swiper';
+interface Window {
+  eventHub: any;
+}

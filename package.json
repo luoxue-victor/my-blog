@@ -23,7 +23,8 @@
     "vue-monaco-editor": "0.0.19",
     "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "webpack": "^4.40.2"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",

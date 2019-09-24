@@ -1,15 +1,13 @@
 const CopyPlugin = require('./copy-dist')
 const DocsPlugin = require('./docs-dist')
 const { creatRouter } = require('./createRouter')
-
-console.log(creatRouter)
 module.exports = {
   publicPath: '/luoxue.github.io/',
   lintOnSave: false,
   runtimeCompiler: true,
   devServer: {
     port: 8080,
-    https: true,
+    https: false,
     proxy: null,
     hotOnly: false,
     disableHostCheck: true
