@@ -4,10 +4,10 @@ const globby = require('globby')
 const path = require('path')
 let mdStr = ''
 class CopyDirWebpackPlugin {
-  constructor (options) {
+  constructor(options) {
     this.options = options
   }
-  apply (compiler) {
+  apply(compiler) {
     const opt = this.options
     compiler.plugin('done', (stats) => {
       if (process.env.NODE_ENV === 'production') {
@@ -30,12 +30,12 @@ class CopyDirWebpackPlugin {
               fs.mkdirpSync(dirpaths)
               fs.copySync(_ori, _)
               const mpath = _.replace('vuepress-docs/', '')
-              const name = fs.readFileSync(_ori)
-                .toString()
-                .match(/^\# [^\s]+/)[0]
-                .trim()
-                .split('# ')[1]
-              mdStr += `### [${name}](${mpath}) \n`
+              const text = fs.readFileSync(_ori).toString()
+              const name = text.match(/^\# [^\s]+/)[0].trim().split('# ')[1];
+              const content = text.match(/\>.+/)
+                ? text.match(/\>.+/)[0]
+                : '' 
+              mdStr += `<card :title="'${name}'" :link="'${mpath}'" :content="'${content}'" /> \n`
             }
           })
           const mdPath = path.join(opt.to, 'guide', 'README.md')
