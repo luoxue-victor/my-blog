@@ -1,16 +1,17 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
-    <h1>{{ props.msg }}</h1>
+    <h1>aaaaaaaaaaaa</h1>
+    <h2>{{ props }}</h2>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
-@Component
-export default class Banner extends Vue {
-  msg = '我是一个banner组件'
+@Component({
+  name: 'a'
+})
+export default class A extends Vue {
   @Prop() private props!: string;
 }
 </script>

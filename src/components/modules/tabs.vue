@@ -4,13 +4,12 @@
     <h1>{{ props.msg }}</h1>
   </div>
 </template>
-
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component
-export default class Banner extends Vue {
-  msg = '我是一个banner组件'
+export default class Tabs extends Vue {
+  msg = '我是一个tabs组件'
   @Prop() private props!: string;
 }
 </script>

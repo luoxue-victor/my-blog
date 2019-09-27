@@ -2,20 +2,32 @@
 export default {
   data() {
     return {
-      dontUseProps: ['name', 'basePath', 'onlyShow'],
+      dontUseProps: ['basePath', 'onlyShow'],
       list: [
         {
-          name: 'banner'
+          name: 'banner',
+          props: {
+            props: {
+              msg: '我是来自banner props'
+            }
+          },
+          style: {
+            background: 'red',
+            marginTop: '100px'
+          }
         },
         {
-          name: 'banner'
-        },
+          name: 'tabs',
+          props: {
+            props: {
+              msg: '我是来自tabs props'
+            }
+          }
+        }
       ]
     };
   },
-  created() {
-    
-  },
+  created() {},
   methods: {
     removeProp(o) {
       const list = this.dontUseProps || [];
@@ -30,13 +42,13 @@ export default {
     const components = this.list
       .map(component => {
         try {
-          if (!this.filter(component)) return false
+          if (!this.filter(component)) return false;
           const c = require(`@/components/modules/${component.name}.vue`)
             .default;
           this.removeProp(component);
           return h(c, { ...component });
         } catch (error) {
-          return (console.error(error), false);
+          return console.error(error), false;
         }
       })
       .filter(_ => _);
@@ -44,5 +56,3 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-</style>

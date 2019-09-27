@@ -5,6 +5,7 @@ const viewshomeHome = () => import('../views/home/Home.vue')
 const viewsmonacoEditormonacoEditor = () => import('../views/monacoEditor/monacoEditor.vue')
 const viewsperformanceapp = () => import('../views/performance/app.vue')
 const viewsvueApp = () => import('../views/vue/App.vue')
+const viewsvuerendercomponents = () => import('../views/vue/render/components.vue')
 const viewsvuerenderrender = () => import('../views/vue/render/render.vue')
 export const routes = [
   {
@@ -42,6 +43,12 @@ export const routes = [
     path: "/vue-App",
     component: viewsvueApp,
     disc: "vue-App"
+  },
+  {
+    name: "vueRenderComponents",
+    path: "/vueRenderComponents",
+    component: viewsvuerendercomponents,
+    disc: "vueRenderComponents"
   },
   {
     name: "vueRenderRender",

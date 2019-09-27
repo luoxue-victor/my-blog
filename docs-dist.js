@@ -35,7 +35,7 @@ class CopyDirWebpackPlugin {
               const content = text.match(/\>.+/)
                 ? text.match(/\>.+/)[0]
                 : '' 
-              mdStr += `<card :title="'${name}'" :link="'${mpath}'" :content="'${content}'" /> \n`
+              mdStr += `<card :title="'${name}'" :link="'${mpath}'" :content="'${content.replace('> ', '')}'" /> \n`
             }
           })
           const mdPath = path.join(opt.to, 'guide', 'README.md')
