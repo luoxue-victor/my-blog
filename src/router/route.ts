@@ -1,5 +1,6 @@
 /* eslint-disable */
 const viewses6bindbind = () => import('../views/es6/bind/bind.vue')
+const viewses6proxyproxy = () => import('../views/es6/proxy/proxy.vue')
 const viewsHome = () => import('../views/Home.vue')
 const viewshomeHome = () => import('../views/home/Home.vue')
 const viewsmonacoEditormonacoEditor = () => import('../views/monacoEditor/monacoEditor.vue')
@@ -13,6 +14,12 @@ export const routes = [
     path: "/es6BindBind",
     component: viewses6bindbind,
     disc: "es6BindBind"
+  },
+  {
+    name: "es6ProxyProxy",
+    path: "/es6ProxyProxy",
+    component: viewses6proxyproxy,
+    disc: "es6ProxyProxy"
   },
   {
     name: "Home",
