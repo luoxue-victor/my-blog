@@ -15,7 +15,7 @@ class CopyDirWebpackPlugin {
           const ps = await globby([`${opt.to}/**`, '!../vuepress-docs/package.json'])
           ps.forEach(p => {
             try {
-              p && fs.removeSync(p)
+              p && !p.includes('node_modules') && fs.removeSync(p)
             } catch (error) {
               console.error(error)
             }
