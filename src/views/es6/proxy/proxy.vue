@@ -1,7 +1,5 @@
 <template>
   <div id="my-app">
-    <!-- <h1 c-bind="a"></h1>
-    <h1 c-bind="a.b.c"></h1>-->
     <input />
     <h1 c-bind="a.b.c.d.e"></h1>
     <input c-model="a.b.c.d.e" type="text" />
@@ -15,7 +13,7 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 export default class Proxy extends Vue {
   private msg: string = "proxy";
   mounted() {
-    const { createApp, reactive } = require("./proxy.ts").default;
+    const { createApp, reactive } = require("./reactive.ts").default;
     const App = {
       setup() {
         const react = reactive({

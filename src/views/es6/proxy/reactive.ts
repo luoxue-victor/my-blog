@@ -11,7 +11,13 @@ interface Watcher {
   update(): void;
 }
 
-const enum OperationTypes {
+const isObject = (val: any): val is Record<any, any> =>
+  val !== null && typeof val === 'object';
+
+const rawToReactive: WeakMap<any, any> = new WeakMap();
+const reactiveToRaw: WeakMap<any, any> = new WeakMap();
+
+export const enum OperationTypes {
   SET = 'set',
   ADD = 'add',
   DELETE = 'delete',
@@ -20,16 +26,7 @@ const enum OperationTypes {
   HAS = 'has',
   ITERATE = 'iterate'
 }
-
-const isObject = (val: any): val is Record<any, any> =>
-  val !== null && typeof val === 'object';
-
-const rawToReactive: WeakMap<any, any> = new WeakMap();
-const reactiveToRaw: WeakMap<any, any> = new WeakMap();
-const targetMap: WeakMap<any, any> = new WeakMap();
-const activeReactiveEffectStack: any[] = [];
-const EMPTY_OBJ: { readonly [key: string]: any } = Object.freeze({})
-
+export const targetMap: WeakMap<any, any> = new WeakMap();
 export default {
   createApp() {
     return {
@@ -40,9 +37,6 @@ export default {
           .children;
         // 将data设置代理并返回代理对象赋值给$data
         const $data = data;
-        effect(() => {
-          console.log('一些操作')
-        })
         // 编译模板
         _compile(nodes, $data);
       }
@@ -97,14 +91,14 @@ function reactive(data: any) {
       if (isObject(res)) {
         data[key] = data[key] = reactive(res);
       }
-      track(target, OperationTypes.GET, key);
+      // track(target, OperationTypes.GET, key);
       return target[key];
     },
     set: function(target: any, key: string, value: any) {
       // 将新值赋值
       target[key] = value;
       // 通知所有订阅者触发更新
-      trigger(target);
+      notify()
       // 严格模式下需要设置返回值，否则会报错
       return value;
     }
@@ -144,97 +138,11 @@ function _compile(nodes: any, $data: any) {
       Dep.add(_watcher(theNode, 'innerHTML', $data, key));
     }
   });
-  trigger($data);
+  notify()
 }
 
-function track(target: any, type: string, key: string) {
-  console.log('track')
-  const effect = activeReactiveEffectStack[activeReactiveEffectStack.length - 1];
-  if (effect) {
-    console.log(targetMap)
-    let depsMap = targetMap.get(target);
-    if (depsMap === void 0) {
-      targetMap.set(target, (depsMap = new Map()));
-    }
-    let dep = depsMap.get(key!);
-    if (!dep) {
-      depsMap.set(key!, (dep = new Set()));
-    }
-    if (!dep.has(effect)) {
-      dep.add(effect);
-      effect.deps.push(dep);
-    }
-  }
-}
-
-function trigger(target: any, key?: string | symbol) {
-  const depsMap: any = targetMap.get(target);
-  const effects: any = new Set()
-  if (depsMap && key) {
-    depsMap.get(key).forEach((dep: any) => {
-      effects.add(dep)
-    });
-    effects.forEach((e: any) => e())
-  }
+function notify () {
   Dep.deps.forEach((e: Watcher) => {
     e.update();
   });
-}
-
-function effect(
-  fn: Function,
-  options: any = EMPTY_OBJ
-): any {
-  if ((fn as any).isEffect) {
-    fn = (fn as any).raw
-  }
-  const effect = createReactiveEffect(fn, options)
-  if (!options.lazy) {
-    effect()
-  }
-  return effect
-}
-
-function createReactiveEffect(
-  fn: Function,
-  options: any
-): any {
-  const effect = function effect(...args: any): any {
-    return run(effect as any, fn, args)
-  } as any
-  effect.isEffect = true
-  effect.active = true
-  effect.raw = fn
-  effect.scheduler = options.scheduler
-  effect.onTrack = options.onTrack
-  effect.onTrigger = options.onTrigger
-  effect.onStop = options.onStop
-  effect.computed = options.computed
-  effect.deps = []
-  return effect
-}
-
-function run(effect: any, fn: Function, args: any[]): any {
-  if (!effect.active) {
-    return fn(...args)
-  }
-  if (activeReactiveEffectStack.indexOf(effect) === -1) {
-    cleanup(effect)
-    try {
-      activeReactiveEffectStack.push(effect)
-      return fn(...args)
-    } finally {
-      activeReactiveEffectStack.pop()
-    }
-  }
-}
-
-function cleanup(effect: any) {
-  const { deps } = effect
-  if (deps.length) {
-    for (let i = 0; i < deps.length; i++) {
-      deps[i].delete(effect)
-    }
-    deps.length = 0
-  }
 }
