@@ -77,15 +77,115 @@ console.log(cValue.value) // 1
 
 #### 这也太简单了吧，那么重点来了，effect怎么实现的呢？
 
-别着急，我们线捋一下逻辑
+别着急，我们先捋一下逻辑
 
-- 首先 如果 effect 回调内如果有已响应的对象被触发了 get 时，effect就应该被储存起来 
-- 然后，我们需要一个储存effect的地方，在effect函数调用的时候就应该把effect放进这个储存空间，在vue中使用的是一个数组activeReactiveEffectStack = []
-- 再后，每个target被触发的时候，都可能有多个effect，所以每个target需要有一个对应的依赖收集器 deps，等到 set 时遍历 deps 执行 effect()
-- 然而，这个依赖收集器 deps 不能放在 target 本身上，这样会使数据看起来不是很简洁，还会存在多余无用的数据，所以我们需要一个 map 集合来储存 target 跟 deps 的关系， 在vue中这个储存集合叫 targetMap 。
+1. 首先 如果 effect 回调内有已响应的对象被触发了 get 时，effect就应该被储存起来 
+2. 然后，我们需要一个储存effect的地方，在effect函数调用的时候就应该把effect放进这个储存空间，在vue中使用的是一个数组activeReactiveEffectStack = []
+3. 再后，每个target被触发的时候，都可能有多个effect，所以每个target需要有一个对应的依赖收集器 deps，等到 set 时遍历 deps 执行 effect()
+4. 然而，这个依赖收集器 deps 不能放在 target 本身上，这样会使数据看起来不是很简洁，还会存在多余无用的数据，所以我们需要一个 map 集合来储存 target 跟 deps 的关系， 在vue中这个储存集合叫 targetMap 。
 
-接下来开动吧
+##### 几个概念
 
+1. track 追踪器，在 get 时调用该函数，将所有 get 的 target 跟 key 以及 effect 建立起对应关系
 
+```js
+// 比如 const react = reactive({a: { b: 2 })
+// react.a 时 target -> {a: { b: 2 } key -> a 
+// targetMap 储存了 target --> Map --> key --> Set --> dep --> effect 
+// 当调用 react.a.b.c.d.e 时 depsMap
+// {"a" => Set(1)} --> Set --> effect
+// {"b" => Set(1)}
+// {"c" => Set(1)}
+// {"d" => Set(1)}
+// {"e" => Set(1)}
+export function track(target: any, key: string) {
+  const effect = activeReactiveEffectStack[activeReactiveEffectStack.length - 1];
+  if (effect) {
+    let depsMap = targetMap.get(target);
+    if (depsMap === void 0) {
+      targetMap.set(target, (depsMap = new Map()));
+    }
+    let dep = depsMap.get(key!);
+    if (!dep) {
+      depsMap.set(key!, (dep = new Set()));
+    }
+    if (!dep.has(effect)) {
+      dep.add(effect);
+      effect.deps.push(dep);
+    }
+  }
+}
+```
 
+2. trigger 触发器，这个就比较好理解了，拿到target key下的对应的所有 effect，然后遍历执行 effect()
 
+```js
+export function trigger(target: any, key?: string | symbol) {
+  const depsMap: any = targetMap.get(target);
+  const effects: any = new Set()
+  if (depsMap && depsMap.get(key)) {
+    depsMap.get(key).forEach((dep: any) => {
+      effects.add(dep)
+    });
+    effects.forEach((e: any) => e())
+  }
+}
+```
+
+3. effect 函数实现
+
+```js
+// 暴露的 effect 函数
+export function effect(
+  fn: Function,
+  options: any = EMPTY_OBJ
+): any {
+  if ((fn as any).isEffect) {
+    fn = (fn as any).raw
+  }
+  const effect = createReactiveEffect(fn, options)
+  // 如果不是 lazy，则会立即执行一次
+  if (!options.lazy) {
+    effect()
+  }
+  return effect
+}
+
+// 创建 effect
+function createReactiveEffect(
+  fn: Function,
+  options: any
+): any {
+  const effect = function effect(...args: any): any {
+    return run(effect as any, fn, args)
+  } as any
+  effect.isEffect = true
+  effect.active = true
+  effect.raw = fn
+  effect.scheduler = options.scheduler
+  effect.onTrack = options.onTrack
+  effect.onTrigger = options.onTrigger
+  effect.onStop = options.onStop
+  effect.computed = options.computed
+  effect.deps = []
+  return effect
+}
+
+// 执行函数，执行完之后会将储存的 effect 删除
+// 这是函数 effect 的所有执行，所经历的完整的声明周期
+function run(effect: any, fn: Function, args: any[]): any {
+  if (!effect.active) {
+    return fn(...args)
+  }
+  if (activeReactiveEffectStack.indexOf(effect) === -1) {
+    try {
+      activeReactiveEffectStack.push(effect)
+      return fn(...args)
+    } finally {
+      activeReactiveEffectStack.pop()
+    }
+  }
+}
+```
+
+> 一口气写了这么多，最后总结一下。在大家看源码的时候，如果发现有哪个地方无从下手的话，可以先从测试用例开始看。因为测试用例可以很清楚的知道这个函数想要达到什么效果，然后从效果上想，为什么这么做，如果我自己写的话应该怎么写，这样一点点就能揣摩出作者的意图了。再根据源码结合自己的想法你就能够学到很多。

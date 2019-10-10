@@ -11,6 +11,8 @@ interface Watcher {
   update(): void;
 }
 
+import { trigger, track } from '../effect/effect'
+
 const isObject = (val: any): val is Record<any, any> =>
   val !== null && typeof val === 'object';
 
@@ -53,6 +55,13 @@ const Dep: Dep = {
   }
 };
 
+// 通知
+function notify () {
+  Dep.deps.forEach((e: Watcher) => {
+    e.update();
+  });
+}
+
 // observer跟compile的桥梁，在编译时添加watcher，在数据更新时触发update更新视图
 function _watcher(node: any, attr: string, data: any, key: string): Watcher {
   return {
@@ -91,7 +100,7 @@ function reactive(data: any) {
       if (isObject(res)) {
         data[key] = data[key] = reactive(res);
       }
-      // track(target, OperationTypes.GET, key);
+      track(target, key);
       return target[key];
     },
     set: function(target: any, key: string, value: any) {
@@ -99,6 +108,7 @@ function reactive(data: any) {
       target[key] = value;
       // 通知所有订阅者触发更新
       notify()
+      trigger(target, key)
       // 严格模式下需要设置返回值，否则会报错
       return value;
     }
@@ -139,10 +149,4 @@ function _compile(nodes: any, $data: any) {
     }
   });
   notify()
-}
-
-function notify () {
-  Dep.deps.forEach((e: Watcher) => {
-    e.update();
-  });
 }
