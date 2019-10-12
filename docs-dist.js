@@ -21,6 +21,7 @@ class CopyDirWebpackPlugin {
             }
           })
           const psf = await globby([`${opt.from}/**`])
+          let readmeContent = '# 技匠\n';
           psf.forEach(_ => {
             const _ori = _
             _ = _.replace('src', opt.to)
@@ -36,11 +37,14 @@ class CopyDirWebpackPlugin {
                 ? text.match(/\>.+/)[0]
                 : '' 
               mdStr += `<card :title="'${name}'" :link="'${mpath}'" :content="'${content.replace('> ', '')}'" /> \n`
+
+              readmeContent += `[${name}](${_ori}) \n`
             }
           })
           const mdPath = path.join(opt.to, 'guide', 'README.md')
           fs.writeFileSync(mdPath, mdStr)
           fs.writeFileSync(path.join(opt.to, 'README.md'), fs.readFileSync(path.join('src', 'views', 'home-index.md')).toString())
+          fs.writeFileSync('README.md', readmeContent)
           console.log(`  生成markdown`)
         })()
       }
