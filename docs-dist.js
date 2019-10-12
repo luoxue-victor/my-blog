@@ -3,6 +3,11 @@ const fs = require('fs-extra')
 const globby = require('globby')
 const path = require('path')
 let mdStr = ''
+let readmeContent = `# 技匠
+> 总结了个人的一些新技术、最佳实践、工程化、效率、工作体会等文章。欢迎star、pr，微信luoxue2479，下面是我的公众号，可以关注我【前端技匠】，随时获取最新动态哦！
+
+![前端技匠](public/gongzhonghao.jpeg)
+`;
 class CopyDirWebpackPlugin {
   constructor(options) {
     this.options = options
@@ -21,7 +26,7 @@ class CopyDirWebpackPlugin {
             }
           })
           const psf = await globby([`${opt.from}/**`])
-          let readmeContent = '# 技匠\n';
+          
           psf.forEach(_ => {
             const _ori = _
             _ = _.replace('src', opt.to)
@@ -38,7 +43,7 @@ class CopyDirWebpackPlugin {
                 : '' 
               mdStr += `<card :title="'${name}'" :link="'${mpath}'" :content="'${content.replace('> ', '')}'" /> \n`
 
-              readmeContent += `#### [${name}](${_ori}) \n > ${content} \n\n`
+              readmeContent += `#### [${name}](${_ori}) \n ${content} \n\n`
             }
           })
           const mdPath = path.join(opt.to, 'guide', 'README.md')
