@@ -1,4 +1,5 @@
 export default {
+  // https://as.alipayobjects.com/g/cicada/monaco-editor-mirror/0.6.1/min/vs/loader.js
   /* For now: default to cdn. */
   load(srcPath = 'https://as.alipayobjects.com/g/cicada/monaco-editor-mirror/0.6.1/min', callback) {
     if (window.monaco) {
@@ -12,11 +13,9 @@ export default {
     };
     const loaderUrl = `${config.paths.vs}/loader.js`;
     const onGotAmdLoader = () => {
-
       if (window.LOADER_PENDING) {
         window.require.config(config);
       }
-
       // Load monaco
       window.require(['vs/editor/editor.main'], () => {
         callback();

@@ -1,37 +1,18 @@
 /* eslint-disable */
-const viewses6bindbind = () => import('../views/es6/bind/bind.vue')
-const viewses6proxyproxy = () => import('../views/es6/proxy/proxy.vue')
 const viewsHome = () => import('../views/Home.vue')
-const viewshomeHome = () => import('../views/home/Home.vue')
 const viewsmonacoEditormonacoEditor = () => import('../views/monacoEditor/monacoEditor.vue')
 const viewsperformanceapp = () => import('../views/performance/app.vue')
 const viewsvueApp = () => import('../views/vue/App.vue')
 const viewsvuerendercomponents = () => import('../views/vue/render/components.vue')
 const viewsvuerenderrender = () => import('../views/vue/render/render.vue')
+const viewsvue3bindbind = () => import('../views/vue3/bind/bind.vue')
+const viewsvue3proxyproxy = () => import('../views/vue3/proxy/proxy.vue')
 export const routes = [
-  {
-    name: "es6BindBind",
-    path: "/es6BindBind",
-    component: viewses6bindbind,
-    disc: "es6BindBind"
-  },
-  {
-    name: "es6ProxyProxy",
-    path: "/es6ProxyProxy",
-    component: viewses6proxyproxy,
-    disc: "es6ProxyProxy"
-  },
   {
     name: "Home",
     path: "/Home",
     component: viewsHome,
     disc: "Home"
-  },
-  {
-    name: "home-Home",
-    path: "/home-Home",
-    component: viewshomeHome,
-    disc: "home-Home"
   },
   {
     name: "monacoEditorMonacoEditor",
@@ -50,6 +31,18 @@ export const routes = [
     path: "/vue-App",
     component: viewsvueApp,
     disc: "vue-App"
+  },
+  {
+    name: "vue3BindBind",
+    path: "/vue3BindBind",
+    component: viewsvue3bindbind,
+    disc: "vue3BindBind"
+  },
+  {
+    name: "vue3ProxyProxy",
+    path: "/vue3ProxyProxy",
+    component: viewsvue3proxyproxy,
+    disc: "vue3ProxyProxy"
   },
   {
     name: "vueRenderComponents",

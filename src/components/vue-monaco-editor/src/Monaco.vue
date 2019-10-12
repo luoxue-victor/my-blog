@@ -57,38 +57,7 @@ export default {
       }
     }
   },
-  watch: {
-    highlighted: {
-      handler(lines) {
-        this.highlightLines(lines);
-      },
-      deep: true
-    }
-  },
   methods: {
-    highlightLines(lines) {
-      if (!this.editor) {
-        return;
-      }
-      lines.forEach((line) => {
-        const className = line.class;
-        const highlighted = this.$el.querySelector(`.${className}`);
-
-        if (highlighted) {
-          highlighted.classList.remove(className);
-        }
-
-        const number = parseInt(line.number);
-        if (!this.editor && number < 1 || isNaN(number)) {
-          return;
-        }
-
-        const selectedLine = this.$el.querySelector(`.view-lines [linenumber="${number}"]`);
-        if (selectedLine) {
-          selectedLine.classList.add(className);
-        }
-      });
-    },
     editorHasLoaded(editor, monaco) {
       this.editor = editor;
       this.monaco = monaco;
