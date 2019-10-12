@@ -31,7 +31,7 @@ class CopyDirWebpackPlugin {
               fs.copySync(_ori, _)
               const mpath = _.replace('vuepress-docs/', '')
               const text = fs.readFileSync(_ori).toString()
-              const name = text.match(/^\# [^\s]+/)[0].trim().split('# ')[1];
+              const name = _ori.split('/').pop().replace('.md', '')
               const content = text.match(/\>.+/)
                 ? text.match(/\>.+/)[0]
                 : '' 
