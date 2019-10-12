@@ -38,7 +38,7 @@ class CopyDirWebpackPlugin {
                 : '' 
               mdStr += `<card :title="'${name}'" :link="'${mpath}'" :content="'${content.replace('> ', '')}'" /> \n`
 
-              readmeContent += `[${name}](${_ori}) \n`
+              readmeContent += `#### [${name}](${_ori}) \n > ${content} \n\n`
             }
           })
           const mdPath = path.join(opt.to, 'guide', 'README.md')
