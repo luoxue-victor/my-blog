@@ -1,4 +1,5 @@
 /* eslint-disable */
+const viewscoco = () => import('../views/co/co.vue')
 const viewsHome = () => import('../views/Home.vue')
 const viewsmonacoEditormonacoEditor = () => import('../views/monacoEditor/monacoEditor.vue')
 const viewsperformanceapp = () => import('../views/performance/app.vue')
@@ -8,6 +9,12 @@ const viewsvuerenderrender = () => import('../views/vue/render/render.vue')
 const viewsvue3bindbind = () => import('../views/vue3/bind/bind.vue')
 const viewsvue3proxyproxy = () => import('../views/vue3/proxy/proxy.vue')
 export const routes = [
+  {
+    name: "coCo",
+    path: "/coCo",
+    component: viewscoco,
+    disc: "coCo"
+  },
   {
     name: "Home",
     path: "/Home",

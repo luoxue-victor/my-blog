@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/jquery": "^3.3.31",
     "@types/swiper": "^4.4.5",
+    "co": "^4.6.0",
     "core-js": "^2.6.5",
     "iview": "^3.0.1",
     "jquery": "^3.4.1",
