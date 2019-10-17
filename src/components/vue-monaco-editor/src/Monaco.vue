@@ -8,22 +8,28 @@ const debounce = require('lodash.debounce');
 
 export default {
   props: {
+    // 编辑器的宽，默认 100%
     width: { type: [String, Number], default: '100%' },
+    // 编辑器的高，默认 100%
     height: { type: [String, Number], default: '100%' },
+    // 传进来的代码，一段字符串
     code: { type: String, default: '// code \n' },
+    // 资源路径
     srcPath: { type: String },
+    // 默认使用 js
     language: { type: String, default: 'javascript' },
+    // 主题 默认 vs-dark
     theme: { type: String, default: 'vs-dark' }, // vs, hc-black
+    // 一些 monaco 配置参数
     options: { type: Object, default: () => {} },
-    highlighted: { type: Array, default: () => [{
-      number: 0,
-      class: ''
-    }] },
+    // 截流
     changeThrottle: { type: Number, default: 0 }
   },
-  mounted() {
+  // 加载资源
+  created() {
     this.fetchEditor();
   },
+  // 销毁
   destroyed() {
     this.destroyMonaco();
   },

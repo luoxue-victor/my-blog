@@ -1,6 +1,5 @@
 export default {
   // https://as.alipayobjects.com/g/cicada/monaco-editor-mirror/0.6.1/min/vs/loader.js
-  /* For now: default to cdn. */
   load(srcPath = 'https://as.alipayobjects.com/g/cicada/monaco-editor-mirror/0.6.1/min', callback) {
     if (window.monaco) {
       callback();
@@ -16,12 +15,12 @@ export default {
       if (window.LOADER_PENDING) {
         window.require.config(config);
       }
-      // Load monaco
+      
       window.require(['vs/editor/editor.main'], () => {
         callback();
       });
 
-      // Call the delayed callbacks when AMD loader has been loaded
+      // 当AMD加载器已被加载时调用延迟的回调
       if (window.LOADER_PENDING) {
         window.LOADER_PENDING = false;
         const loaderCallbacks = window.LOADER_CALLBACKS;
@@ -35,10 +34,9 @@ export default {
       }
     };
 
-    // Load AMD loader if necessary
     if (window.LOADER_PENDING) {
-      // We need to avoid loading multiple loader.js when there are multiple editors loading concurrently
-      //  delay to call callbacks except the first one
+      // 我们需要避免加载多个loader.js时
+      // 有多个编辑器同时加载延迟调用回调除了第一个
       window.LOADER_CALLBACKS = window.LOADER_CALLBACKS || [];
       window.LOADER_CALLBACKS.push({
         window: this,

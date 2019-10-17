@@ -1,11 +1,10 @@
 <template>
   <div>
     <MonacoEditor
-      height="300"
+      height="200"
       language="typescript"
       :code="code"
       :editorOptions="options"
-      @mounted="onMounted"
       @codeChange="onCodeChange"
     ></MonacoEditor>
     <div class="res">{{ res }}</div>
@@ -20,8 +19,9 @@ export default {
   },
   data() {
     return {
-      res: 'noop',
-      code: `const noop = () => {
+      res: ' noop',
+      code: 
+`const noop = () => {
   console.log('noop')
 }
 noop()
@@ -59,7 +59,6 @@ noop()
       });
       console.log = ori;
     },
-    onMounted() {},
     onCodeChange(code) {
       // 保存 console.log 对象
       const ori = console.log;
@@ -90,10 +89,10 @@ noop()
   margin-top: 50px;
 }
 .res {
-  // width: 550px;
   height: 500px;
   background: orange;
-  font-size: 40px;
+  font-size: 30px;
   white-space: pre-wrap;
+  padding-left: 20px;
 }
 </style>
