@@ -1,5 +1,6 @@
 /* eslint-disable */
 const viewscoco = () => import('../views/co/co.vue')
+const viewsdeviceIndex = () => import('../views/device/Index.vue')
 const viewsHome = () => import('../views/Home.vue')
 const viewsmonacoEditormonacoEditor = () => import('../views/monacoEditor/monacoEditor.vue')
 const viewsperformanceapp = () => import('../views/performance/app.vue')
@@ -14,6 +15,12 @@ export const routes = [
     path: "/coCo",
     component: viewscoco,
     disc: "coCo"
+  },
+  {
+    name: "device-Index",
+    path: "/device-Index",
+    component: viewsdeviceIndex,
+    disc: "device-Index"
   },
   {
     name: "Home",

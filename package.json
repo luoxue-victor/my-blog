@@ -14,6 +14,7 @@
     "@types/swiper": "^4.4.5",
     "co": "^4.6.0",
     "core-js": "^2.6.5",
+    "html5-device-mockups": "^3.2.1",
     "iview": "^3.0.1",
     "jquery": "^3.4.1",
     "register-service-worker": "^1.6.2",
