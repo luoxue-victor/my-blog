@@ -2,7 +2,7 @@ const CopyPlugin = require('./copy-dist')
 const DocsPlugin = require('./docs-dist')
 const { creatRouter } = require('./createRouter')
 module.exports = {
-  publicPath: '/luoxue.github.io/',
+  publicPath: '/dist/',// '/luoxue.github.io/',
   lintOnSave: false,
   runtimeCompiler: true,
   devServer: {

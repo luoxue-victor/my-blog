@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/luoxue.github.io/precache-manifest.1e9d27d8cc57a98203ced735b9c6ca28.js"
+  "/precache-manifest.7e752a03f5952e529d24783f10a08adc.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "source-code"});
