@@ -7,8 +7,11 @@ let readmeContent = `# 技匠
 
 ![前端技匠](public/gongzhonghao.jpeg)
 
-执行 npm run dev 可以运行结果调试
+执行 npm run server 可以运行结果调试
 执行 npm run build 构建工程化
+
+项目网站：https://luoxue-victor.github.io/source-code/dist/index.html#/Home
+文章网站：https://luoxue-victor.github.io/xuege-learning/dist/guide/
 `;
 class CopyDirWebpackPlugin {
   constructor(options) {
@@ -34,6 +37,10 @@ class CopyDirWebpackPlugin {
             _ = _.replace('src', opt.to)
             const dirpaths = _.substring(0, _.lastIndexOf('/'))
             if (_.includes('home-index.md')) return;
+            if (/\.(png|jpg|jpeg|gif)$/.test(_) && _.includes('views')) {
+              fs.mkdirpSync(dirpaths)
+              fs.copySync(_ori, _)
+            }
             if (/\.md$/.test(_) && _.includes('views')) {
               fs.mkdirpSync(dirpaths)
               fs.copySync(_ori, _)
