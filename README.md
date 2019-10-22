@@ -8,6 +8,9 @@
 
 项目网站：https://luoxue-victor.github.io/source-code/dist/index.html#/Home
 文章网站：https://luoxue-victor.github.io/xuege-learning/dist/guide/
+#### [推荐语](src/views/推荐语.md) 
+ > https://github.com/luoxue-victor/source-code 
+
 #### [css模块化](src/views/css/css模块化.md) 
  > 你是否为class命名而感到苦恼？  
 
@@ -23,14 +26,17 @@
 #### [如何写一个代码编辑器](src/views/monacoEditor/如何写一个代码编辑器.md) 
  > 当我们看到这个编辑器的时候，你有没有好奇这是这么做出来的？如果是让你来做，你会怎么做？ 
 
-#### [spa首屏计算方案](src/views/performance/spa首屏计算方案.md) 
- > 对于首屏的定义，浏览器没有给出标准的指标，因为不同网站对于首屏的要求也是不尽相同的。我们从谷歌的第一次有效时间（first meaningfull paint）得到了一些启发，例如，一个新闻网站文字跟字体对于它来说是更重要的，而图片是次要的。新闻网站可以认为所有文字或字体加载出来即为首屏。但是对于电商网站来说，电商网站的图片可能更加重要，因为图片占据整个网站的80%以上。所以仅仅字体或文字被加载出来并不能定义为首屏时间。以此可以看出，首屏并不是一个可以通过简单的api就能计算出来的，首屏的方案也是因公司而异的。幸运的是，浏览器提供了各种监测性能及dom的api，可以让我们通过这些api来计算首屏时间。 
-
 #### [vue中使用ts](src/views/typescript/vue中使用ts.md) 
  > 注意：此文并不是把vue改为全部替换为ts，而是可以在原来的项目中植入ts文件，目前只是实践阶段，向ts转化过程中的过渡。 
 
+#### [spa首屏计算方案](src/views/performance/spa首屏计算方案.md) 
+ > 对于首屏的定义，浏览器没有给出标准的指标，因为不同网站对于首屏的要求也是不尽相同的。我们从谷歌的第一次有效时间（first meaningfull paint）得到了一些启发，例如，一个新闻网站文字跟字体对于它来说是更重要的，而图片是次要的。新闻网站可以认为所有文字或字体加载出来即为首屏。但是对于电商网站来说，电商网站的图片可能更加重要，因为图片占据整个网站的80%以上。所以仅仅字体或文字被加载出来并不能定义为首屏时间。以此可以看出，首屏并不是一个可以通过简单的api就能计算出来的，首屏的方案也是因公司而异的。幸运的是，浏览器提供了各种监测性能及dom的api，可以让我们通过这些api来计算首屏时间。 
+
 #### [vue指令实现墓碑元素](src/views/vue/vue指令实现墓碑元素.md) 
  > 话不多说，先上图 
+
+#### [帮你高效使用 VS Code 的秘诀](src/views/vscode/帮你高效使用 VS Code 的秘诀.md) 
+ > - 作者：👊Badd 
 
 #### [async|await源码实现](src/views/javascript/async/async|await源码实现.md) 
  > 看到 async/await 是ea7带来的新语法糖，可以将内部的异步方法同步处理，看一下下面的例子 
@@ -40,6 +46,9 @@
 
 #### [vue3中effect与computed的亲密关系](src/views/vue3/effect/vue3中effect与computed的亲密关系.md) 
  > 在我刚看完vue3响应式的时候，心中就有一个不可磨灭的谜团，让我茶不思饭不想，总想生病。那么这个谜团是什么呢？就是在响应式中一直穿行在tranger跟track之间的effect。如果单纯的响应式原理根本就用不上effect，那么effect到底是干什么的呢？ 
+
+#### [写给新手前端的各种文件上传攻略，从小图片到大文件断点续传](src/views/tools/input/写给新手前端的各种文件上传攻略，从小图片到大文件断点续传.md) 
+ > multipart互联网上的混合资源，就是资源由多种元素组成，form-data表示可以使用HTML Forms 和 POST 方法上传文件，具体的定义可以参考RFC 7578。 
 
 #### [vue3实现v-model原理](src/views/vue3/proxy/vue3实现v-model原理.md) 
  > vue3 源码正式放出来了，想必大家也都开始争先恐后的学习 vue3 的知识了。由于 vue3 已经不再支持 v-model 了，而使用 .sync 来代替，但是为了这篇文章可以帮助大家快速了解 vue 的双向绑定实现原理，部分使用了 vue2.x v-model 的实现原理 
