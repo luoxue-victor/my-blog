@@ -7,6 +7,10 @@ const viewsperformanceapp = () => import('../views/performance/app.vue')
 const viewsvueApp = () => import('../views/vue/App.vue')
 const viewsvuerendercomponents = () => import('../views/vue/render/components.vue')
 const viewsvuerenderrender = () => import('../views/vue/render/render.vue')
+const viewsvuevueRouterFirst = () => import('../views/vue/vue-router/First.vue')
+const viewsvuevueRouterHome = () => import('../views/vue/vue-router/Home.vue')
+const viewsvuevueRouterrouter = () => import('../views/vue/vue-router/router.vue')
+const viewsvuevueRouterSecond = () => import('../views/vue/vue-router/Second.vue')
 const viewsvue3bindbind = () => import('../views/vue3/bind/bind.vue')
 const viewsvue3proxyproxy = () => import('../views/vue3/proxy/proxy.vue')
 export const routes = [
@@ -69,5 +73,29 @@ export const routes = [
     path: "/vueRenderRender",
     component: viewsvuerenderrender,
     disc: "vueRenderRender"
+  },
+  {
+    name: "vueVueRouter-First",
+    path: "/vueVueRouter-First",
+    component: viewsvuevueRouterFirst,
+    disc: "vueVueRouter-First"
+  },
+  {
+    name: "vueVueRouter-Home",
+    path: "/vueVueRouter-Home",
+    component: viewsvuevueRouterHome,
+    disc: "vueVueRouter-Home"
+  },
+  {
+    name: "vueVueRouter-Second",
+    path: "/vueVueRouter-Second",
+    component: viewsvuevueRouterSecond,
+    disc: "vueVueRouter-Second"
+  },
+  {
+    name: "vueVueRouterRouter",
+    path: "/vueVueRouterRouter",
+    component: viewsvuevueRouterrouter,
+    disc: "vueVueRouterRouter"
   }
 ]

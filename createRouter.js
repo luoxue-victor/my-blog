@@ -17,6 +17,8 @@ generateRoutesAndFiles = async () => {
     }
   })
 
+  console.log(files)
+
   return createRoutes(
     Object.values(files),
     path.resolve(process.cwd(), './src'),
@@ -55,63 +57,6 @@ function createRoutes (files, srcDir, pagesDir) {
     'routes': cleanChildrenRoutes(routes),
     'requireComponent': requireComponent
   }
-}
-const startsWithAlias = aliasArray => str => aliasArray.some(c => str.startsWith(c))
-const reqSep = /\//g
-const sysSep = escapeRegExp(path.sep)
-const normalize = string => string.replace(reqSep, sysSep)
-const startsWithSrcAlias = startsWithAlias(['@', '~'])
-const r = function r (...args) {
-  const lastArg = args[args.length - 1]
-  if (startsWithSrcAlias(lastArg)) {
-    return wp(lastArg)
-  }
-  return wp(path.resolve(...args.map(normalize)))
-}
-
-function baseToString (value) {
-  if (typeof value === 'string') {
-    return value
-  }
-  if (isArray_1(value)) {
-    return _arrayMap(value, baseToString) + ''
-  }
-  if (isSymbol_1(value)) {
-    return symbolToString ? symbolToString.call(value) : ''
-  }
-  var result = (value + '')
-  return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result
-}
-
-function toString (value) {
-  return value == null ? '' : baseToString(value)
-}
-
-function escapeRegExp (string) {
-  const reRegExpChar = /[\\^$.*+?()[\]{}|]/g
-  const reHasRegExpChar = RegExp(reRegExpChar.source)
-  string = toString(string)
-  return (string && reHasRegExpChar.test(string))
-    ? string.replace(reRegExpChar, '\\$&')
-    : string
-}
-const isWindows = /^win/.test(process.platform)
-const wp = function wp (p = '') {
-  if (isWindows) {
-    return p.replace(/\\/g, '\\\\')
-  }
-  return p
-}
-const getRoutePathExtension = (key) => {
-  if (key === '_') {
-    return '*'
-  }
-
-  if (key.startsWith('_')) {
-    return `:${key.substr(1)}`
-  }
-
-  return key
 }
 
 const DYNAMIC_ROUTE_REGEX = /^\/(:|\*)/
