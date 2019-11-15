@@ -22,6 +22,9 @@ import 'html5-device-mockups'
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
+  res() {
+    return '222'
+  }
 }
 </script>
 
