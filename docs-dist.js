@@ -8,9 +8,11 @@ let readmeContent = `# 技匠
 ![前端技匠](public/gongzhonghao.jpeg)
 
 执行 npm run server 可以运行结果调试
+
 执行 npm run build 构建工程化
 
 项目网站：https://luoxue-victor.github.io/source-code/dist/index.html#/Home
+
 文章网站：https://luoxue-victor.github.io/xuege-learning/dist/guide/
 `;
 class CopyDirWebpackPlugin {
@@ -52,7 +54,7 @@ class CopyDirWebpackPlugin {
                 : '' 
               mdStr += `<card :title="'${name}'" :link="'${mpath}'" :content="'${content.replace('> ', '')}'" /> \n`
 
-              readmeContent += `#### [${name}](${_ori}) \n ${content} \n\n`
+              readmeContent += `#### [${name}](${_ori}) \n` // ${content} \n\n
             }
           })
           const mdPath = path.join(opt.to, 'guide', 'README.md')
