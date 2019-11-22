@@ -17,8 +17,6 @@ generateRoutesAndFiles = async () => {
     }
   })
 
-  console.log(files)
-
   return createRoutes(
     Object.values(files),
     path.resolve(process.cwd(), './src'),
