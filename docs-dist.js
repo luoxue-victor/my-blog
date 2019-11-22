@@ -2,6 +2,8 @@ const fs = require('fs-extra')
 const globby = require('globby')
 const path = require('path')
 const chalk = require('chalk')
+const tagMap = require('./config/tag.map.config')()
+
 let mdStr = ''
 const mdStore = []
 let readmeContent = `
@@ -100,9 +102,11 @@ function createMd(doc, mdStore) {
     }
   })
 
-  Object.keys(s).forEach(_ => {
-    doc += `\n## 标签 \`${_}\` \n\n`
-    s[_].forEach(__ => {
+  tagMap.sortByLevel.forEach(_ => {
+    const config = tagMap.config
+    const name = config[_] ? config[_].name : _
+    doc += `\n## \`${name}\` \n\n`
+    s[_] && s[_].forEach(__ => {
       doc += `${__.title} \n`
     })
   })
