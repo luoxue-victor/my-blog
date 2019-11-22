@@ -101,7 +101,7 @@ function createMd(doc, mdStore) {
   })
 
   Object.keys(s).forEach(_ => {
-    doc += `\n> ## ${_} \n\n`
+    doc += `\n## 标签 \`${_}\` \n\n`
     s[_].forEach(__ => {
       doc += `${__.title} \n`
     })
