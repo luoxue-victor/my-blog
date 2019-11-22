@@ -6,17 +6,21 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "cz": "npm run log && git add . && git cz",
+    "log": "conventional-changelog --config ./node_modules/vue-cli-plugin-commitlint/lib/log -i CHANGELOG.md -s -r 0",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "@types/jquery": "^3.3.31",
+    "@types/node": "^12.12.7",
     "@types/swiper": "^4.4.5",
     "co": "^4.6.0",
     "core-js": "^2.6.5",
     "html5-device-mockups": "^3.2.1",
     "iview": "^3.0.1",
     "jquery": "^3.4.1",
+    "object-sizeof": "^1.5.2",
     "register-service-worker": "^1.6.2",
     "swiper": "^5.0.1",
     "vue": "^2.6.10",
@@ -43,16 +47,31 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-import": "^1.8.0",
+    "commitizen": "^4.0.3",
+    "commitlint": "^8.2.0",
+    "conventional-changelog-cli": "^2.0.28",
     "copy-webpack-plugin": "^5.0.4",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "husky": "^3.0.9",
     "install": "^0.13.0",
     "node-sass": "^4.9.0",
     "npm": "^6.11.3",
     "sass-loader": "^7.1.0",
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
+    "vue-cli-plugin-commitlint": "^1.0.5",
     "vue-cli-plugin-iview": "^1.0.6",
     "vue-template-compiler": "^2.6.10"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/vue-cli-plugin-commitlint/lib/cz"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
