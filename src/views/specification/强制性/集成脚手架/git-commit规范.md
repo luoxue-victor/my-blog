@@ -1,14 +1,17 @@
 ## git commit 规范
 
-- `feat`    新功能（feature）
-- `fix`     修补bug
-- `docs`    文档（documentation）
-- `style`   格式（不影响代码运行的变动）
-- `refactor`重构（即不是新增功能，也不是修改bug的代码变动）
-- `perf`    性能优化
-- `test`    增加测试
-- `workflow`对工作空间修改，编译器配置等
-- `build`   构建工程
-- `chore`   构建过程或辅助工具的变动
-- `types`   编写 ts 时，修改类型
-- `wip`     半成品作品还在开发中（Work in progress）
+### 规则
+
+| 规范名   | 描述                                                    |
+| -------- | ------------------------------------------------------- |
+| docs     | 仅仅修改了文档，比如 README, CHANGELOG, CONTRIBUTE 等等 |
+| chore    | 改变构建流程、或者增加依赖库、工具等                    |
+| feat     | 新增 feature                                            |
+| fix      | 修复 bug                                                |
+| merge    | 合并分之                                                |
+| perf     | 优化相关，比如提升性能、体验                            |
+| refactor | 代码重构，没有加新功能或者修复 bug                      |
+| revert   | 回滚到上一个版本                                        |
+| style    | 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑      |
+| test     | 测试用例，包括单元测试、集成测试等                      |
+
