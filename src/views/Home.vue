@@ -4,17 +4,27 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import CreateRoute from '@/components/CreateRoute/home.vue'
-import MoveSwiper from '@/components/swiper/move.vue'
+import { Component, Vue } from "vue-property-decorator";
+import CreateRoute from "@/components/CreateRoute/home.vue";
+import MoveSwiper from "@/components/swiper/move.vue";
 
-Vue.component('CreateRoute', CreateRoute)
-Vue.component('MoveSwiper', MoveSwiper)
+Vue.component("CreateRoute", CreateRoute);
+Vue.component("MoveSwiper", MoveSwiper);
 
 @Component
 export default class Home extends Vue {
-  mounted () {
+  mounted() {
     console.log(this);
   }
 }
 </script>
+
+<style scoped lang="less">
+div {
+  position: absolute;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+</style>

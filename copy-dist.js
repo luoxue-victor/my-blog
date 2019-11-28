@@ -1,4 +1,3 @@
-const execa = require('execa')
 const fs = require('fs-extra')
 const globby = require('globby')
 class CopyDirWebpackPlugin {
