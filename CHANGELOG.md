@@ -5,6 +5,7 @@
 * **规范：** 新增 readme 跟 changelog 规范 4f266aa
 * **规范：** 新增各种规范 7e33630
 * **规范：** 邢增部分规范 0b9748b
+* **增加 prettier、tsconfig 等规范：** 增加 prettier、tsconfig 等规范 e9e1a68
 * **docs：** 修改了文档 263b97e
 
 
