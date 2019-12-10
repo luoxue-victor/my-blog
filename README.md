@@ -17,19 +17,37 @@
  
 [readme规范](src/views/specification/强制性/readme规范.md) 
  
-[vue-cli3插件规范](src/views/specification/强制性/vue-cli3插件规范.md) 
- 
 [图片规范](src/views/specification/强制性/图片规范.md) 
  
 [埋点规范](src/views/specification/强制性/埋点规范.md) 
  
 [浏览器兼容规范](src/views/specification/强制性/浏览器兼容规范.md) 
  
-[UI规范](src/views/specification/非强制性/UI规范.md) 
+[脚手架插件规范](src/views/specification/强制性/脚手架插件规范.md) 
+ 
+[UI规范](src/views/specification/暂时不做/UI规范.md) 
+ 
+[gitlab使用规范（暂定）](src/views/specification/暂时不做/gitlab使用规范（暂定）.md) 
+ 
+[metric规范](src/views/specification/暂时不做/metric规范.md) 
+ 
+[node规范（低）](src/views/specification/暂时不做/node规范（低）.md) 
+ 
+[nuxt规范（低）](src/views/specification/暂时不做/nuxt规范（低）.md) 
+ 
+[webpack规范](src/views/specification/暂时不做/webpack规范.md) 
+ 
+[协作流程规范（单）](src/views/specification/暂时不做/协作流程规范（单）.md) 
+ 
+[后台规范（低）](src/views/specification/暂时不做/后台规范（低）.md) 
+ 
+[小程序规范（单）](src/views/specification/暂时不做/小程序规范（单）.md) 
+ 
+[异常错误规范](src/views/specification/暂时不做/异常错误规范.md) 
+ 
+[组件规范（UI）](src/views/specification/暂时不做/组件规范（UI）.md) 
  
 [css代码规范](src/views/specification/非强制性/css代码规范.md) 
- 
-[gitlab使用规范](src/views/specification/非强制性/gitlab使用规范.md) 
  
 [html代码规范](src/views/specification/非强制性/html代码规范.md) 
  
@@ -37,25 +55,13 @@
  
 [js代码规范](src/views/specification/非强制性/js代码规范.md) 
  
-[nuxt规范](src/views/specification/非强制性/nuxt规范.md) 
- 
 [ts代码规范](src/views/specification/非强制性/ts代码规范.md) 
  
 [vue代码规范](src/views/specification/非强制性/vue代码规范.md) 
  
-[webpack规范](src/views/specification/非强制性/webpack规范.md) 
- 
-[web安全规范](src/views/specification/非强制性/web安全规范.md) 
- 
-[协作流程规范](src/views/specification/非强制性/协作流程规范.md) 
- 
-[工程化配置规范](src/views/specification/非强制性/工程化配置规范.md) 
- 
-[异常错误规范](src/views/specification/非强制性/异常错误规范.md) 
+[安全规范](src/views/specification/非强制性/安全规范.md) 
  
 [注释规范](src/views/specification/非强制性/注释规范.md) 
- 
-[组件规范](src/views/specification/非强制性/组件规范.md) 
  
 [chengelog规范](src/views/specification/强制性/集成脚手架/chengelog规范.md) 
  
@@ -65,19 +71,21 @@
  
 [ignore规范](src/views/specification/强制性/集成脚手架/ignore规范.md) 
  
-[metric规范](src/views/specification/强制性/集成脚手架/metric规范.md) 
- 
 [prettier规范](src/views/specification/强制性/集成脚手架/prettier规范.md) 
  
 [tsconfig规范](src/views/specification/强制性/集成脚手架/tsconfig规范.md) 
  
-[编译器规范](src/views/specification/强制性/集成脚手架/编译器规范.md) 
+[tslint规范](src/views/specification/强制性/集成脚手架/tslint规范.md) 
+ 
+[vetur规范](src/views/specification/强制性/集成脚手架/vetur规范.md) 
  
 [目录规范](src/views/specification/强制性/集成脚手架/目录规范.md) 
  
-[路由规范](src/views/specification/强制性/集成脚手架/路由规范.md) 
+[编译器规范](src/views/specification/强制性/集成脚手架/编译器规范.md) 
  
 [本地存储规范](src/views/specification/非强制性/集成脚手架/本地存储规范.md) 
+ 
+[路由规范（低）](src/views/specification/非强制性/集成脚手架/路由规范（低）.md) 
  
 
 ## `性能优化` 
@@ -87,9 +95,9 @@
 
 ## `工程化` 
 
-[gulp相关](src/views/engineering/gulp相关.md) 
- 
 [rollup相关](src/views/engineering/rollup相关.md) 
+ 
+[gulp相关](src/views/engineering/gulp相关.md) 
  
 [webpack相关](src/views/engineering/webpack相关.md) 
  
@@ -97,9 +105,9 @@
  
 [吊起App方案总结](src/views/engineering/吊起App方案总结.md) 
  
-[构建一个你自己的脚手架](src/views/engineering/构建一个你自己的脚手架.md) 
- 
 [构建一个ts打包器模板](src/views/engineering/构建一个ts打包器模板.md) 
+ 
+[构建一个你自己的脚手架](src/views/engineering/构建一个你自己的脚手架.md) 
  
 [构建一个脚手架你可能需要知道哪些](src/views/engineering/构建一个脚手架你可能需要知道哪些.md) 
  
