@@ -1,17 +1,32 @@
 
 > 总结了个人的一些新技术、最佳实践、工程化、效率、工作体会等文章。欢迎star、pr，微信luoxue2479，下面是我的公众号，可以关注我【前端技匠】，随时获取最新动态哦！
 
-执行 npm run server 可以运行结果调试
-
-执行 npm run build 构建工程化
-
-项目网站：https://luoxue-victor.github.io/source-code/dist/index.html#/Home
-
-文章网站：https://luoxue-victor.github.io/xuege-learning/dist/guide/
 
 ## `规范大全` 
 
 [可收录脚手架代码规范](src/views/specification/可收录脚手架代码规范.md) 
+ 
+[gitlab使用规范（暂定）](src/views/specification/暂时不做/gitlab使用规范（暂定）.md) 
+ 
+[UI规范](src/views/specification/暂时不做/UI规范.md) 
+ 
+[metric规范](src/views/specification/暂时不做/metric规范.md) 
+ 
+[node规范（低）](src/views/specification/暂时不做/node规范（低）.md) 
+ 
+[nuxt规范（低）](src/views/specification/暂时不做/nuxt规范（低）.md) 
+ 
+[webpack规范](src/views/specification/暂时不做/webpack规范.md) 
+ 
+[协作流程规范（单）](src/views/specification/暂时不做/协作流程规范（单）.md) 
+ 
+[后台规范（低）](src/views/specification/暂时不做/后台规范（低）.md) 
+ 
+[小程序规范（单）](src/views/specification/暂时不做/小程序规范（单）.md) 
+ 
+[组件规范（UI）](src/views/specification/暂时不做/组件规范（UI）.md) 
+ 
+[异常错误规范](src/views/specification/暂时不做/异常错误规范.md) 
  
 [readme规范](src/views/specification/强制性/readme规范.md) 
  
@@ -39,27 +54,9 @@
  
 [注释规范](src/views/specification/非强制性/注释规范.md) 
  
-[UI规范](src/views/specification/暂时不做/UI规范.md) 
+[路由规范（低）](src/views/specification/非强制性/集成脚手架/路由规范（低）.md) 
  
-[gitlab使用规范（暂定）](src/views/specification/暂时不做/gitlab使用规范（暂定）.md) 
- 
-[metric规范](src/views/specification/暂时不做/metric规范.md) 
- 
-[node规范（低）](src/views/specification/暂时不做/node规范（低）.md) 
- 
-[nuxt规范（低）](src/views/specification/暂时不做/nuxt规范（低）.md) 
- 
-[webpack规范](src/views/specification/暂时不做/webpack规范.md) 
- 
-[协作流程规范（单）](src/views/specification/暂时不做/协作流程规范（单）.md) 
- 
-[后台规范（低）](src/views/specification/暂时不做/后台规范（低）.md) 
- 
-[小程序规范（单）](src/views/specification/暂时不做/小程序规范（单）.md) 
- 
-[异常错误规范](src/views/specification/暂时不做/异常错误规范.md) 
- 
-[组件规范（UI）](src/views/specification/暂时不做/组件规范（UI）.md) 
+[本地存储规范](src/views/specification/非强制性/集成脚手架/本地存储规范.md) 
  
 [chengelog规范](src/views/specification/强制性/集成脚手架/chengelog规范.md) 
  
@@ -83,10 +80,6 @@
  
 [编译器规范](src/views/specification/强制性/集成脚手架/编译器规范.md) 
  
-[本地存储规范](src/views/specification/非强制性/集成脚手架/本地存储规范.md) 
- 
-[路由规范（低）](src/views/specification/非强制性/集成脚手架/路由规范（低）.md) 
- 
 
 ## `性能优化` 
 
@@ -103,9 +96,9 @@
  
 [一些工程化常用到的包及工具](src/views/engineering/一些工程化常用到的包及工具.md) 
  
-[吊起App方案总结](src/views/engineering/吊起App方案总结.md) 
- 
 [构建一个ts打包器模板](src/views/engineering/构建一个ts打包器模板.md) 
+ 
+[吊起App方案总结](src/views/engineering/吊起App方案总结.md) 
  
 [构建一个你自己的脚手架](src/views/engineering/构建一个你自己的脚手架.md) 
  
@@ -127,9 +120,9 @@
 
 ## `vue-next` 
 
-[vue3中effect与computed的亲密关系](src/views/vue3/effect/vue3中effect与computed的亲密关系.md) 
- 
 [vue3实现v-model原理](src/views/vue3/proxy/vue3实现v-model原理.md) 
+ 
+[vue3中effect与computed的亲密关系](src/views/vue3/effect/vue3中effect与computed的亲密关系.md) 
  
 
 ## `vue 相关` 
