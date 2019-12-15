@@ -2,6 +2,13 @@
 > 总结了个人的一些新技术、最佳实践、工程化、效率、工作体会等文章。欢迎star、pr，微信luoxue2479，下面是我的公众号，可以关注我【前端技匠】，随时获取最新动态哦！
 
 
+## `webpack 相关` 
+
+[webpack5+webpack-chain构建一个大型应用系列2](src/views/webpack/webpack5+webpack-chain构建一个大型应用系列2.md) 
+ 
+[一步步从零开始webpack搭建一个大型项目](src/views/webpack/一步步从零开始webpack搭建一个大型项目.md) 
+ 
+
 ## `规范大全` 
 
 [可收录脚手架代码规范](src/views/specification/可收录脚手架代码规范.md) 
@@ -14,7 +21,23 @@
  
 [浏览器兼容规范](src/views/specification/强制性/浏览器兼容规范.md) 
  
+[css代码规范](src/views/specification/非强制性/css代码规范.md) 
+ 
 [脚手架插件规范](src/views/specification/强制性/脚手架插件规范.md) 
+ 
+[html代码规范](src/views/specification/非强制性/html代码规范.md) 
+ 
+[http缓存规范](src/views/specification/非强制性/http缓存规范.md) 
+ 
+[js代码规范](src/views/specification/非强制性/js代码规范.md) 
+ 
+[vue代码规范](src/views/specification/非强制性/vue代码规范.md) 
+ 
+[安全规范](src/views/specification/非强制性/安全规范.md) 
+ 
+[注释规范](src/views/specification/非强制性/注释规范.md) 
+ 
+[ts代码规范](src/views/specification/非强制性/ts代码规范.md) 
  
 [UI规范](src/views/specification/暂时不做/UI规范.md) 
  
@@ -22,9 +45,9 @@
  
 [metric规范](src/views/specification/暂时不做/metric规范.md) 
  
-[node规范（低）](src/views/specification/暂时不做/node规范（低）.md) 
- 
 [nuxt规范（低）](src/views/specification/暂时不做/nuxt规范（低）.md) 
+ 
+[node规范（低）](src/views/specification/暂时不做/node规范（低）.md) 
  
 [webpack规范](src/views/specification/暂时不做/webpack规范.md) 
  
@@ -34,25 +57,13 @@
  
 [小程序规范（单）](src/views/specification/暂时不做/小程序规范（单）.md) 
  
-[异常错误规范](src/views/specification/暂时不做/异常错误规范.md) 
- 
 [组件规范（UI）](src/views/specification/暂时不做/组件规范（UI）.md) 
  
-[css代码规范](src/views/specification/非强制性/css代码规范.md) 
+[异常错误规范](src/views/specification/暂时不做/异常错误规范.md) 
  
-[html代码规范](src/views/specification/非强制性/html代码规范.md) 
+[本地存储规范](src/views/specification/非强制性/集成脚手架/本地存储规范.md) 
  
-[http缓存规范](src/views/specification/非强制性/http缓存规范.md) 
- 
-[js代码规范](src/views/specification/非强制性/js代码规范.md) 
- 
-[ts代码规范](src/views/specification/非强制性/ts代码规范.md) 
- 
-[vue代码规范](src/views/specification/非强制性/vue代码规范.md) 
- 
-[安全规范](src/views/specification/非强制性/安全规范.md) 
- 
-[注释规范](src/views/specification/非强制性/注释规范.md) 
+[路由规范（低）](src/views/specification/非强制性/集成脚手架/路由规范（低）.md) 
  
 [chengelog规范](src/views/specification/强制性/集成脚手架/chengelog规范.md) 
  
@@ -76,10 +87,6 @@
  
 [编译器规范](src/views/specification/强制性/集成脚手架/编译器规范.md) 
  
-[本地存储规范](src/views/specification/非强制性/集成脚手架/本地存储规范.md) 
- 
-[路由规范（低）](src/views/specification/非强制性/集成脚手架/路由规范（低）.md) 
- 
 
 ## `性能优化` 
 
@@ -90,9 +97,9 @@
 
 [gulp相关](src/views/engineering/gulp相关.md) 
  
-[rollup相关](src/views/engineering/rollup相关.md) 
- 
 [webpack相关](src/views/engineering/webpack相关.md) 
+ 
+[rollup相关](src/views/engineering/rollup相关.md) 
  
 [一些工程化常用到的包及工具](src/views/engineering/一些工程化常用到的包及工具.md) 
  
@@ -100,9 +107,9 @@
  
 [构建一个ts打包器模板](src/views/engineering/构建一个ts打包器模板.md) 
  
-[构建一个脚手架你可能需要知道哪些](src/views/engineering/构建一个脚手架你可能需要知道哪些.md) 
- 
 [构建一个你自己的脚手架](src/views/engineering/构建一个你自己的脚手架.md) 
+ 
+[构建一个脚手架你可能需要知道哪些](src/views/engineering/构建一个脚手架你可能需要知道哪些.md) 
  
 
 ## `javascript 相关` 
@@ -113,9 +120,9 @@
  
 [算法题](src/views/javascript/算法题.md) 
  
-[async|await源码实现](src/views/javascript/async/async|await源码实现.md) 
- 
 [设计模式简介](src/views/javascript/design-patterns/设计模式简介.md) 
+ 
+[async|await源码实现](src/views/javascript/async/async|await源码实现.md) 
  
 
 ## `vue-next` 
@@ -144,19 +151,19 @@
 
 ## `设计模式` 
 
-[适配器模式](src/views/design/Adapter/适配器模式.md) 
- 
-[装饰器模式](src/views/design/Decorator/装饰器模式.md) 
- 
 [工厂模式](src/views/design/Factory/工厂模式.md) 
  
 [享元模式](src/views/design/Flyweight/享元模式.md) 
  
-[发布订阅者模式](src/views/design/Observer/发布订阅者模式.md) 
+[装饰器模式](src/views/design/Decorator/装饰器模式.md) 
+ 
+[适配器模式](src/views/design/Adapter/适配器模式.md) 
  
 [单例模式](src/views/design/Singleton/单例模式.md) 
  
 [策略模式](src/views/design/Strategy/策略模式.md) 
+ 
+[发布订阅者模式](src/views/design/Observer/发布订阅者模式.md) 
  
 
 ## `模拟器` 
