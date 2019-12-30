@@ -38,8 +38,7 @@ function done (opt) {
       fs.writeFileSync(mdPath, mdStr)
       fs.writeFileSync(path.join(opt.to, 'README.md'), fs.readFileSync(path.join('src', 'views', 'home-index.md')).toString())
       fs.writeFileSync('README.md', createMd(readmeContent, mdStore))
-
-      console.log(chalk.cyan(`  生成markdown`))
+      require('./issue2doc')
     })()
   }
 }
@@ -96,7 +95,7 @@ function createMd (doc, mdStore) {
   tagMap.sortByLevel.forEach(_ => {
     const config = tagMap.config
     const name = config[_] ? config[_].name : _
-    doc += `\n## \`${name}\` \n\n`
+    doc += `\n### ${name} \n\n`
     s[_] && s[_].forEach(__ => {
       doc += `${__.title} \n`
     })
