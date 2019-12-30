@@ -7,8 +7,6 @@ const tagMap = require('./config/tag.map.config')()
 let mdStr = ''
 const mdStore = []
 let readmeContent = `
-> 总结了个人的一些新技术、最佳实践、工程化、效率、工作体会等文章。欢迎star、pr，微信luoxue2479，下面是我的公众号，可以关注我【前端技匠】，随时获取最新动态哦！
-
 `
 
 class CopyDirWebpackPlugin {
@@ -97,7 +95,7 @@ function createMd (doc, mdStore) {
     const name = config[_] ? config[_].name : _
     doc += `\n### ${name} \n\n`
     s[_] && s[_].forEach(__ => {
-      doc += `${__.title} \n`
+      doc += `- ${__.title}`
     })
   })
 

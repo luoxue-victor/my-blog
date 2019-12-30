@@ -1,16 +1,16 @@
 const fs = require('fs-extra')
 const globby = require('globby')
 class CopyDirWebpackPlugin {
-  constructor(options) {
-    this.options = options;
+  constructor (options) {
+    this.options = options
   }
-  apply(compiler) {
+  apply (compiler) {
     const opt = this.options
     compiler.plugin('done', (stats) => {
       if (process.env.NODE_ENV === 'production') {
-        (async ()=>{
+        (async () => {
           const ps = await globby([`${opt.to}/**`, '!.git/**'])
-          
+
           ps.forEach(p => fs.removeSync(p))
           const psf = await globby([`${opt.from}/**`])
           psf.forEach(_ => {
@@ -23,7 +23,7 @@ class CopyDirWebpackPlugin {
           console.log(`  完成copy ${opt.from} to ${opt.to}`)
         })()
       }
-    });
+    })
   }
 }
 

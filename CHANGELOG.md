@@ -7,6 +7,7 @@
 * **规范：** 邢增部分规范 0b9748b
 * **增加 prettier、tsconfig 等规范：** 增加 prettier、tsconfig 等规范 e9e1a68
 * **docs：** 修改了文档 263b97e
+* **readme：** 增加自动添加issue到readme 456ab7d
 * **webpack：** 增加webpack实战项目2 c717f7a
 
 

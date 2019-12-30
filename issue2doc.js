@@ -28,7 +28,7 @@ request({
     Object.keys(issuesSortByLabel).forEach(name => {
       ctx += `\n## ${name} \n\n` // title
       issuesSortByLabel[name].forEach(issue => {
-        ctx += `[${issue.title}](${issue.html_url}) \n`
+        ctx += `- [${issue.title}](${issue.html_url}) \n`
       })
     })
 
