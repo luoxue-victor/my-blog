@@ -57,7 +57,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^3.0.9",
     "install": "^0.13.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "npm": "^6.11.3",
     "request": "^2.88.0",
     "sass-loader": "^7.1.0",
