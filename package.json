@@ -19,7 +19,7 @@
     "core-js": "^2.6.5",
     "html5-device-mockups": "^3.2.1",
     "iview": "^3.0.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "object-sizeof": "^1.5.2",
